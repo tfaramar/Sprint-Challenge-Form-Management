@@ -12,6 +12,9 @@ describe('<App />', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
+  it('generates cards for the updated state', () => {
+    const card = <Card />
+  })
 
 
 
