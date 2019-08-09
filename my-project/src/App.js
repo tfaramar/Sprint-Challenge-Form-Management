@@ -15,26 +15,32 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    this.getUsers();
+    this.getFoods();
   }
 
-  getUsers = () => {
+  getFoods = () => {
     axios.get('http://localhost:5000/api/restricted/data')
       .then(res => {
         console.log(res)
         this.setState({
           foods: res.data
-        })
-        console.log(this.state.foods);
+        });
       })
       .catch(error => console.log(error))
+  }
+
+  componentDidUpdate(){
+    console.log(this.state.foods);
   }
 
   render() {
     return (
       <div className="App">
         <RegisterForm />
-        <Card name={'burger'} course={'main'} technique={'grill'}/>
+        {this.state.foods.map(food => (
+          <Card name={food.name} course={food.course} technique={food.technique}/>
+        ))}
+        
       </div>
     );
   }
