@@ -3,12 +3,22 @@ import React from 'react';
 import RegisterForm from './components/Form';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <RegisterForm />
-    </div>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      user: {}
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <RegisterForm />
+      </div>
+    );
+  }
 }
 
 export default App;
